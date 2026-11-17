@@ -56,4 +56,4 @@ python -m lab8.benchmark --shapes workflow,single,orchestrator,swarm --cases dat
 
 - Hoàn thành phần swarm-as-baseline: hiểu luồng handoff → investigator → quote → host, và giải thích được vì sao seed 55 làm hỏng T02.
 - Đóng góp bằng chứng đo lường (benchmark, crash) và khung quyết định kiến trúc cho nhóm.
-- Còn thiếu: cập nhật commit hash cá nhân trong `TEAM.md` / ADR sau khi commit cuối; báo cáo thành viên orchestrator sẽ được nhóm bổ sung khi có tài liệu.
+- Đã cập nhật commit hash `157f662` trong `TEAM.md` (dòng đóng góp cá nhân) và `report/team/decision_adr.md`; báo cáo thành viên orchestrator Nguyễn Bảo Duy đã có tại `report/team/2A202603890_NguyenBaoDuy.md`.
