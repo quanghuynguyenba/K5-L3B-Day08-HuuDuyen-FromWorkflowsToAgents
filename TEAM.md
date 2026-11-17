@@ -2,17 +2,19 @@
 
 ## Thông tin nhóm
 
-- Tên nhóm: 
+- Tên nhóm: HuuDuyen
 - Lớp: L3B
-- Repo nhóm: `K5-L3A-DAY08-TenNhom-FromWorkflowsToAgents` (xem [SUBMISSION.md](SUBMISSION.md))
-- URL repo, nhánh nộp, commit chốt:
+- Repo nhóm: `K5-L3B-Day08-HuuDuyen-FromWorkflowsToAgents` (xem [SUBMISSION.md](SUBMISSION.md))
+- URL repo, nhánh nộp, commit chốt: https://github.com/quanghuynguyenba/K5-L3B-Day08-HuuDuyen-FromWorkflowsToAgents · nhánh `main` · commit chốt xem `report/team/decision_adr.md`
 
 ## Thành viên
 
 | STT | Họ tên | MSSV | Email | GitHub | Vai trò |
 | --: | ------ | ---- | ----- | ------ | ------- |
-|   1 |        |      |       |        |         |
-|   2 |  Nguyễn Minh Quang  | 2A202603791  | 26ai.quangnm3@vinuni.edu.vn  |  QuangNEU   |   single   |
+|   1 | Nguyễn Hồng Thắng | 2A202603829 | | thangdktd | workflow |
+|   2 | Nguyễn Minh Quang | 2A202603791 | 26ai.quangnm3@vinuni.edu.vn | QuangNEU | single |
+|   3 | Nguyễn Bá Quang Huy | 2A202603926 | quanghuynguyenba@gmail.com | quanghuynguyenba | swarm / eval+report |
+|   4 | Nguyễn Bảo Duy | 2A202603890 | baoduy2048@gmail.com | baoduy2048 | orchestrator |
 
 Gợi ý chia vai:
 
@@ -25,7 +27,10 @@ Gợi ý chia vai:
 
 | Người | Vai | Commit | Test đã thêm hoặc sửa |
 | --- | --- | --- | --- |
+| Nguyễn Hồng Thắng | workflow | 9905c72 | test_workflow_thangdktd.py |
 | Nguyễn Minh Quang | single agent | d694417 | test_single_agent.py |
+| Nguyễn Bá Quang Huy | swarm / eval+report | pending-after-commit | test_swarm_nguyenbaquanghuy.py |
+| Nguyễn Bảo Duy | orchestrator | 70f1ac4 | test_orchestrator_handoff.py |
 
 ## Cá nhân
 
@@ -38,6 +43,21 @@ report/team/MSSV_HoTen.md
 Ví dụ: `report/team/20241234_NguyenVanAn.md`.
 
 Sao chép mục dưới đây cho từng thành viên.
+
+## 2A202603829_NguyenHongThang
+
+### Phần việc phụ trách
+
+- Shape A — Workflow (`src/lab8/shapes/workflow.py`).
+
+### Đóng góp cụ thể
+
+- Hiện thực workflow deterministic CP2/CP3; thêm test thiếu `order_id` → `needs_info`.
+- Chi tiết: `report/team/2A202603829_NguyenHongThang.md`.
+
+### Bằng chứng
+
+- 62/62 student tests shape workflow; commit `9905c72`.
 
 ## 2A202603791_NguyenMinhQuang
 
@@ -56,16 +76,33 @@ Sao chép mục dưới đây cho từng thành viên.
 - 4/4 test tại `src/tests/test_single_agent.py` passed.
 - Chi tiết xem tại `report/team/2A202603791_NguyenMinhQuang.md`.
 
-## MSSV_HoTen
+## 2A202603926_NguyenBaQuangHuy
 
 ### Phần việc phụ trách
 
--
+- Shape D — Swarm reference: kiểm thử, benchmark, phân tích điểm yếu seed 55; tổng hợp báo cáo nhóm / ADR / research card.
 
 ### Đóng góp cụ thể
 
--
+- Thêm `src/tests/test_swarm_nguyenbaquanghuy.py` khóa điểm yếu T02 seed 55 và kiểm không lộ secret.
+- Chạy benchmark 4 shape × 5 seed và crash suite; điền `decision_adr.md`, `research_card.md`, `group_report.md`.
 
 ### Bằng chứng
 
--
+- `src/reports/benchmark.json`, `src/reports/crash.json` (`20/20`).
+- Chi tiết: `report/team/2A202603926_NguyenBaQuangHuy.md`.
+
+## 2A202603890_NguyenBaoDuy
+
+### Phần việc phụ trách
+
+- Shape C — Orchestrator (`src/lab8/shapes/orchestrator.py`).
+
+### Đóng góp cụ thể
+
+- Commit `677a71c` (hiện thực orchestrator) và `70f1ac4` (`test_orchestrator_handoff.py`: handoff allowlist, không lộ secret, crash/resume một refund).
+
+### Bằng chứng
+
+- 62/62 student tests shape orchestrator trên bộ public.
+- Chi tiết: `report/team/2A202603890_NguyenBaoDuy.md` (có thể bổ sung thêm khi có tài liệu cá nhân).
