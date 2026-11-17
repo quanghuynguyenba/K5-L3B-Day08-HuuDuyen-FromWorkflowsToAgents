@@ -36,6 +36,21 @@ Thứ tự làm: (1) smoke + cổng host xanh; (2) hiện thực A/B/C theo docs
 
 Ranh giới thống nhất ở cả bốn shape: tiền do `compute_compensation`; approval / ledger / idempotency `refund:{claim_id}` do host; chữ trong ticket là dữ liệu người dùng, không phải lệnh.
 
+**E - Bonus.** Nghiên cứu mở rộng: Topic B7 — Kiểm toán Grader (EMNLP 2026)
+
+Nhóm lựa chọn thực hiện đề tài điểm cộng **Topic B7 (Kiểm toán Grader)** dựa trên nghiên cứu *Rethinking Evaluation of MAS Efficiency* (EMNLP 2026).
+- **Mục tiêu:** Kiểm toán tính đúng đắn của chính thước đo (evaluator/grader) bằng phương pháp kiểm thử biến hình (*Metamorphic Testing*), đảm bảo mọi kết luận về hiệu năng agent không bị sai lệch do lỗi từ bộ đo.
+- **Hiện thực (`src/bonus/grader_audit.py`):**
+  - Đánh giá 3 ứng viên grader (`grader_a`, `grader_b`, `grader_c`) trước các quan hệ biến hình về lỗi hạ tầng (`metamorphic_infra`), nhân bản dữ liệu (`metamorphic_duplicate`), và luật bồi thường nghiệp vụ (`metamorphic_claim_delay`).
+  - Đề xuất thêm **2 quan hệ biến hình mới**:
+    1. *Cách ly dữ liệu đa shape (`cross_shape_isolation`)*: Đảm bảo việc thêm dữ liệu của shape khác không làm thay đổi các chỉ số đo lường của shape hiện tại.
+    2. *Bất biến thứ tự trial (`permutation_order_invariance`)*: Đảm bảo thứ tự xuất hiện của các trial không làm đổi các chỉ số thống kê.
+- **Kết quả kiểm toán:**
+  - `grader_b` là bản chuẩn xác (**Sound Grader**), thỏa mãn 100% các quan hệ biến hình.
+  - `grader_a` bị bắt lỗi cộng dồn chi phí ảo (`extra` cost) trên từng `claim_id` duy nhất, phá vỡ tính tỉ lệ tuyến tính của chi phí (tỉ số chi phí khi nhân đôi đạt 1.6684 thay vì 2.0).
+  - `grader_c` bị bắt lỗi gán `passed=False` cho các trial bị lỗi hạ tầng (`infra_error: true`), trừng phạt oan agent và làm giảm pass rate từ 75.00% xuống 56.25% (-18.75%).
+- **Bằng chứng:** Bộ kiểm thử `src/tests/test_bonus_grader_audit.py` (14/14 test cases passed), báo cáo dữ liệu `src/reports/bonus_grader_audit.json` và báo cáo khoa học `report/team/bonus_report.md`.
+
 ## 4. Kết quả
 
 Số liệu từ `src/reports/benchmark.json` (14 claim × seeds `11,22,33,44,55` = 70 trial / shape):
@@ -64,7 +79,8 @@ Quyết định kiến trúc và lý do: xem `report/team/decision_adr.md` → c
 
 Chi tiết đóng góp của từng thành viên nằm trong `TEAM.md` (bảng đóng góp) và báo cáo cá nhân `report/team/MSSV_HoTen.md`.
 
-Tóm tắt: Thắng — workflow + `test_workflow_thangdktd.py`; Quang — single + `test_single_agent.py`; Duy — orchestrator + `test_orchestrator_handoff.py`; Huy — swarm eval/report + `test_swarm_nguyenbaquanghuy.py`.
+Tóm tắt: Thắng — workflow + `test_workflow_thangdktd.py`; Quang — single + bonus + `test_single_agent.py` ; Duy — orchestrator + `test_orchestrator_handoff.py`; Huy — swarm eval/report + `test_swarm_nguyenbaquanghuy.py`.
+
 
 ## 7. Hạn chế và hướng cải thiện
 
