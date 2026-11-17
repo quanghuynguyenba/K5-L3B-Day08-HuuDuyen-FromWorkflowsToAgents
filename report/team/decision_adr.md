@@ -4,7 +4,7 @@
 `Shape chọn` phải là đúng một trong: `workflow`, `single`, `orchestrator`, `swarm`. Đây là shape được chấm cổng hidden.
 
 - Shape chọn: workflow
-- Commit hash: ecf4f5a
+- Commit hash: 157f662
 - Run id dẫn chứng: R-workflow-C-001-s11
 - Pass rate / pass^5 / seed min-max / variance: 1.0 / 1.0 / 1.0–1.0 / 0.0
 - Cost per success (mô phỏng, VND): 0.0
@@ -23,7 +23,7 @@ Không, với bằng chứng public hiện tại. Multi-agent (orchestrator/swar
 
 ## Trace và bằng chứng
 
-Trace workflow ghi các event đã sanitize: `claim_view` (không ticket thô), `lookup_order` / quyết định trạng thái, `quote` từ `compute_compensation`, và kết quả host. Cố ý **không** ghi `parent_secret`, claim/order row thô, SĐT, địa chỉ, tên hàng hay header. Scanner grader đọc `trace_path` và mọi file `<run_id>*` cùng thư mục; nếu ghi log ngoài chỗ đó thì không được coi là đã chứng minh sạch secret — phải để artifact nằm đúng contract v1. Bằng chứng chạy: `src/reports/benchmark.json`, `src/reports/crash.json`.
+Trace workflow ghi các event đã sanitize: `claim_view` (không ticket thô), `lookup_order` / quyết định trạng thái, `quote` từ `compute_compensation`, và kết quả host. Cố ý **không** ghi `parent_secret`, claim/order row thô, SĐT, địa chỉ, tên hàng hay header. Scanner grader đọc `trace_path` và mọi file `<run_id>`* cùng thư mục; nếu ghi log ngoài chỗ đó thì không được coi là đã chứng minh sạch secret — phải để artifact nằm đúng contract v1. Bằng chứng chạy: `src/reports/benchmark.json`, `src/reports/crash.json`.
 
 ## Giới hạn
 

@@ -29,7 +29,7 @@ Gợi ý chia vai:
 | --- | --- | --- | --- |
 | Nguyễn Hồng Thắng | workflow | 9905c72 | test_workflow_thangdktd.py |
 | Nguyễn Minh Quang | single agent | d694417 | test_single_agent.py |
-| Nguyễn Bá Quang Huy | swarm / eval+report | pending-after-commit | test_swarm_nguyenbaquanghuy.py |
+| Nguyễn Bá Quang Huy | swarm / eval+report | 157f662 | test_swarm_nguyenbaquanghuy.py |
 | Nguyễn Bảo Duy | orchestrator | 70f1ac4 | test_orchestrator_handoff.py |
 
 ## Cá nhân

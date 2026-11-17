@@ -6,7 +6,7 @@ Tối đa 5 trang ngoài phụ lục. Số liệu lấy từ file trong `src/rep
 
 - Tên nhóm: HuuDuyen
 - Thành viên: xem `TEAM.md`
-- Commit chốt (trùng `report/team/decision_adr.md`): `ecf4f5a` (cập nhật lại sau commit báo cáo cuối theo SUBMISSION.md)
+- Commit chốt (trùng `report/team/decision_adr.md`): `157f662`
 - Repo: https://github.com/quanghuynguyenba/K5-L3B-Day08-HuuDuyen-FromWorkflowsToAgents
 
 ## 2. Mục tiêu và cách tiếp cận
