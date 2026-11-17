@@ -12,7 +12,7 @@
 | STT | Họ tên | MSSV | Email | GitHub | Vai trò |
 | --: | ------ | ---- | ----- | ------ | ------- |
 |   1 | Nguyễn Hồng Thắng | 2A202603829 | | thangdktd | workflow |
-|   2 | Nguyễn Minh Quang | 2A202603791 | 26ai.quangnm3@vinuni.edu.vn | QuangNEU | single |
+|   2 | Nguyễn Minh Quang | 2A202603791 | 26ai.quangnm3@vinuni.edu.vn | QuangNEU | single + bonus |
 |   3 | Nguyễn Bá Quang Huy | 2A202603926 | quanghuynguyenba@gmail.com | quanghuynguyenba | swarm / eval+report |
 |   4 | Nguyễn Bảo Duy | 2A202603890 | baoduy2048@gmail.com | baoduy2048 | orchestrator |
 
