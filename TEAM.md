@@ -25,7 +25,7 @@ Gợi ý chia vai:
 
 | Người | Vai | Commit | Test đã thêm hoặc sửa |
 | --- | --- | --- | --- |
-| Nguyễn Minh Quang | single agent | d694417 | test_single_agent.py |
+| Nguyễn Minh Quang | single agent & bonus B7 | d694417 | test_single_agent.py, test_bonus_grader_audit.py |
 
 ## Cá nhân
 
@@ -44,17 +44,21 @@ Sao chép mục dưới đây cho từng thành viên.
 ### Phần việc phụ trách
 
 - Shape B — Single ReAct Agent (`src/lab8/shapes/single.py`).
+- Mở rộng nghiên cứu: Topic B7 — Kiểm toán Grader (`src/bonus/grader_audit.py`).
 
 ### Đóng góp cụ thể
 
-- Hiện thực Single Agent với bounded ReAct loop (tối đa 8 bước), read-only tool allowlist, xử lý trần đơn hàng và an toàn crash.
-- Viết 4 unit tests độc lập tại `src/tests/test_single_agent.py` (commit `d694417`).
+- Hiện thực Single Agent với bounded ReAct loop (tối đa 8 bước), read-only tool allowlist, xử lý trần đơn hàng và an toàn crash (commit `d694417`).
+- Viết 4 unit tests độc lập tại `src/tests/test_single_agent.py`.
+- Hiện thực framework kiểm toán biến hình bonus B7 (`src/bonus/grader_audit.py`), đề xuất 2 quan hệ biến hình mới (`cross_shape_isolation`, `permutation_order_invariance`).
+- Viết 14 test cases tại `src/tests/test_bonus_grader_audit.py`, xuất file số liệu `src/reports/bonus_grader_audit.json` và hoàn thành báo cáo `report/team/bonus_report.md`.
 
 ### Bằng chứng
 
-- 62/62 test student shape single passed.
+- 62/62 test student shape single passed; crash safety 20/20.
 - 4/4 test tại `src/tests/test_single_agent.py` passed.
-- Chi tiết xem tại `report/team/2A202603791_NguyenMinhQuang.md`.
+- 14/14 test tại `src/tests/test_bonus_grader_audit.py` passed; `check_submission` xác nhận `[ OK ] report/team/bonus_report.md: đã khai topic`.
+- Chi tiết xem tại `report/team/2A202603791_NguyenMinhQuang.md` và `report/team/bonus_report.md`.
 
 ## MSSV_HoTen
 

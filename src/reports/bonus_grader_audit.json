@@ -1,0 +1,159 @@
+{
+  "run_id": "audit-1794888367",
+  "topic": "B7 · Kiểm toán grader",
+  "source": "EMNLP 2026 - Rethinking Evaluation of MAS Efficiency",
+  "claim_delay_business_rule": {
+    "relation": "delay_days_2_vs_3",
+    "status": "PASS",
+    "quote_a_vnd": 0,
+    "quote_a_reason": "no_entitlement",
+    "quote_b_vnd": 35000,
+    "quote_b_reason": "entitled",
+    "flip_valid": true
+  },
+  "graders": {
+    "grader_a": {
+      "verdict": "DEFECTIVE",
+      "behavior_defect": "Tích luỹ chi phí ảo (extra cost) trên từng claim_id duy nhất vào total_simulated_cost_vnd, phá vỡ tính tỉ lệ tuyến tính của chi phí khi nhân bản tập dữ liệu (ratio=1.6684 != 2.0).",
+      "relations": {
+        "infra_errors_do_not_move_pass_rate": {
+          "relation": "infra_errors_do_not_move_pass_rate",
+          "status": "PASS",
+          "pass_rate_a": 0.75,
+          "pass_rate_b": 0.75,
+          "diff_pass_rate": 0.0,
+          "graded_trials_a": 12,
+          "graded_trials_b": 12,
+          "successes_a": 9,
+          "successes_b": 9
+        },
+        "duplicate_preserves_rates_and_doubles_totals": {
+          "relation": "duplicated_list_keeps_rates_doubles_totals",
+          "status": "FAIL",
+          "cost_per_success_a": 31.5,
+          "cost_per_success_b": 26.2778,
+          "diff_cost_per_success": -5.2222,
+          "total_cost_a": 283.5,
+          "total_cost_b": 473.0,
+          "ratio_total_cost": 1.6684,
+          "pass_rate_a": 0.75,
+          "pass_rate_b": 0.75
+        },
+        "cross_shape_isolation": {
+          "relation": "cross_shape_isolation",
+          "status": "PASS",
+          "description": "Cross-shape data isolation: adding another shape's trials must not alter target shape metrics.",
+          "mismatches": [],
+          "workflow_pass_rate_a": 0.75,
+          "workflow_pass_rate_b": 0.75,
+          "workflow_cost_a": 283.5,
+          "workflow_cost_b": 283.5
+        },
+        "permutation_order_invariance": {
+          "relation": "permutation_order_invariance",
+          "status": "FAIL",
+          "description": "Shuffling trial order must not change statistical aggregates.",
+          "mismatches": [
+            "workflow.total_simulated_cost_vnd: 283.5 != 283.0",
+            "workflow.cost_per_success_vnd: 31.5 != 31.444444444444443"
+          ]
+        }
+      }
+    },
+    "grader_b": {
+      "verdict": "SOUND / CORRECT",
+      "behavior_defect": "Không có lỗi. Xử lý chuẩn xác bằng cách gán passed=None cho lỗi hạ tầng để không làm bẩn mẫu số, và bảo toàn tính tỉ lệ của chi phí.",
+      "relations": {
+        "infra_errors_do_not_move_pass_rate": {
+          "relation": "infra_errors_do_not_move_pass_rate",
+          "status": "PASS",
+          "pass_rate_a": 0.75,
+          "pass_rate_b": 0.75,
+          "diff_pass_rate": 0.0,
+          "graded_trials_a": 12,
+          "graded_trials_b": 12,
+          "successes_a": 9,
+          "successes_b": 9
+        },
+        "duplicate_preserves_rates_and_doubles_totals": {
+          "relation": "duplicated_list_keeps_rates_doubles_totals",
+          "status": "PASS",
+          "cost_per_success_a": 21.0556,
+          "cost_per_success_b": 21.0556,
+          "diff_cost_per_success": 0.0,
+          "total_cost_a": 189.5,
+          "total_cost_b": 379.0,
+          "ratio_total_cost": 2.0,
+          "pass_rate_a": 0.75,
+          "pass_rate_b": 0.75
+        },
+        "cross_shape_isolation": {
+          "relation": "cross_shape_isolation",
+          "status": "PASS",
+          "description": "Cross-shape data isolation: adding another shape's trials must not alter target shape metrics.",
+          "mismatches": [],
+          "workflow_pass_rate_a": 0.75,
+          "workflow_pass_rate_b": 0.75,
+          "workflow_cost_a": 189.5,
+          "workflow_cost_b": 189.5
+        },
+        "permutation_order_invariance": {
+          "relation": "permutation_order_invariance",
+          "status": "PASS",
+          "description": "Shuffling trial order must not change statistical aggregates.",
+          "mismatches": []
+        }
+      }
+    },
+    "grader_c": {
+      "verdict": "DEFECTIVE",
+      "behavior_defect": "Đếm trial hạ tầng (infra_error=True) thành quyết định sai của agent (gán passed=False), làm sụt giảm oan pass rate từ 0.7500 xuống 0.5625 (-18.75%).",
+      "relations": {
+        "infra_errors_do_not_move_pass_rate": {
+          "relation": "infra_errors_do_not_move_pass_rate",
+          "status": "FAIL",
+          "pass_rate_a": 0.75,
+          "pass_rate_b": 0.5625,
+          "diff_pass_rate": -0.1875,
+          "graded_trials_a": 12,
+          "graded_trials_b": 16,
+          "successes_a": 9,
+          "successes_b": 9
+        },
+        "duplicate_preserves_rates_and_doubles_totals": {
+          "relation": "duplicated_list_keeps_rates_doubles_totals",
+          "status": "PASS",
+          "cost_per_success_a": 21.0556,
+          "cost_per_success_b": 21.0556,
+          "diff_cost_per_success": 0.0,
+          "total_cost_a": 189.5,
+          "total_cost_b": 379.0,
+          "ratio_total_cost": 2.0,
+          "pass_rate_a": 0.75,
+          "pass_rate_b": 0.75
+        },
+        "cross_shape_isolation": {
+          "relation": "cross_shape_isolation",
+          "status": "PASS",
+          "description": "Cross-shape data isolation: adding another shape's trials must not alter target shape metrics.",
+          "mismatches": [],
+          "workflow_pass_rate_a": 0.75,
+          "workflow_pass_rate_b": 0.75,
+          "workflow_cost_a": 189.5,
+          "workflow_cost_b": 189.5
+        },
+        "permutation_order_invariance": {
+          "relation": "permutation_order_invariance",
+          "status": "PASS",
+          "description": "Shuffling trial order must not change statistical aggregates.",
+          "mismatches": []
+        }
+      }
+    }
+  },
+  "sound_grader": "grader_b",
+  "defective_graders": [
+    "grader_a",
+    "grader_c"
+  ]
+}
